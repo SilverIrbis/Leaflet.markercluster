@@ -944,8 +944,8 @@ export var MarkerClusterGroup = L.MarkerClusterGroup = L.FeatureGroup.extend({
 
 		//Set up DistanceGrids for each zoom
 		for (var zoom = maxZoom; zoom >= minZoom; zoom--) {
-			this._gridClusters[zoom] = new L.DistanceGrid(radiusFn(zoom));
-			this._gridUnclustered[zoom] = new L.DistanceGrid(radiusFn(zoom));
+			this._gridClusters[zoom] = new L.DistanceGrid(radiusFn(zoom, this._map));
+			this._gridUnclustered[zoom] = new L.DistanceGrid(radiusFn(zoom, this._map));
 		}
 
 		// Instantiate the appropriate L.MarkerCluster class (animated or not).
